@@ -5,6 +5,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosed" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosed"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -21,41 +24,39 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="iconeBaralho" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="191" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <Component id="j2c1" min="-2" pref="77" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="j2c2" min="-2" pref="77" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="j2c3" min="-2" pref="77" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="298" max="-2" attributes="0"/>
+              <Component id="iconeBaralho" min="-2" pref="77" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="736" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="476" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="centroj1" min="-2" pref="77" max="-2" attributes="0"/>
                           <Component id="centroj2" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="277" max="-2" attributes="0"/>
-                      <Component id="j1carta1" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="j1carta2" min="-2" pref="77" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="j1carta3" min="-2" pref="77" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="j2carta1" min="-2" pref="77" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="j2carta2" min="-2" pref="77" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="j2carta3" min="-2" pref="77" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="j1carta1" min="-2" pref="77" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="j1carta2" min="-2" pref="77" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="j1carta3" min="-2" pref="77" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="303" max="-2" attributes="0"/>
@@ -67,21 +68,21 @@
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="j2c3" max="32767" attributes="0"/>
-                          <Component id="j2c2" max="32767" attributes="0"/>
-                          <Component id="j2c1" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="j2carta1" alignment="3" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="j2carta2" alignment="3" min="-2" pref="114" max="-2" attributes="0"/>
+                          <Component id="j2carta3" alignment="3" min="-2" pref="114" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace pref="193" max="32767" attributes="0"/>
               <Component id="centroj2" min="-2" pref="115" max="-2" attributes="0"/>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -91,7 +92,7 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="166" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="j1carta1" alignment="3" min="-2" pref="114" max="-2" attributes="0"/>
                                   <Component id="j1carta2" alignment="3" min="-2" pref="114" max="-2" attributes="0"/>
@@ -118,12 +119,6 @@
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconeBaralhoMouseClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="j2c1">
-    </Component>
-    <Component class="javax.swing.JLabel" name="j2c2">
-    </Component>
-    <Component class="javax.swing.JLabel" name="j2c3">
-    </Component>
     <Component class="javax.swing.JLabel" name="centroj2">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -132,16 +127,16 @@
       </Properties>
     </Component>
     <Component class="truco.Carta" name="j1carta2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="carta2"/>
-      </Properties>
     </Component>
     <Component class="truco.Carta" name="j1carta1">
     </Component>
     <Component class="truco.Carta" name="j1carta3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="carta3"/>
-      </Properties>
+    </Component>
+    <Component class="truco.Carta" name="j2carta1">
+    </Component>
+    <Component class="truco.Carta" name="j2carta2">
+    </Component>
+    <Component class="truco.Carta" name="j2carta3">
     </Component>
   </SubComponents>
 </Form>
