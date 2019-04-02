@@ -7,6 +7,7 @@ package truco;
 public class Truco extends javax.swing.JFrame {
 
     private int numJogadores;
+    private static Jogo formJogo;
     
     /**
      * Creates new form Trucoo
@@ -83,7 +84,8 @@ public class Truco extends javax.swing.JFrame {
         this.setNumJogadores( (boxJogadores.getSelectedItem().toString().equals("2 jogadores")? 2:4) );
        
         
-        new Jogo("nome", getNumJogadores());
+        formJogo = new Jogo("nome", getNumJogadores());
+        
     }//GEN-LAST:event_botaoJogarActionPerformed
 
     /**
@@ -129,6 +131,12 @@ public class Truco extends javax.swing.JFrame {
     public int getNumJogadores() {
         return numJogadores;
     }
+
+    public static Jogo getFormJogo() {
+        return formJogo;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoJogar;

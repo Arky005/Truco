@@ -47,7 +47,7 @@ class Jogo extends javax.swing.JFrame {
     
     private void iniciarJogo(){
         
-        
+        /*
         
        threadJogo = new Thread(new Runnable(){
            boolean continuar=true;
@@ -113,7 +113,7 @@ class Jogo extends javax.swing.JFrame {
        });
         
        threadJogo.start();
-        
+        */
     }
     
     private void setVisual(){
@@ -139,7 +139,7 @@ class Jogo extends javax.swing.JFrame {
        // j2c3.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
         iconeBaralho.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
         
-        
+        /*
         new Thread(){ 
             public void run(){
                 try {
@@ -150,6 +150,8 @@ class Jogo extends javax.swing.JFrame {
                 }
             }  
         }.start();
+        */
+        new ThreadTimer(3000, iconeBaralho).start();
         
     
         //iconeBaralho.setIcon(null);
