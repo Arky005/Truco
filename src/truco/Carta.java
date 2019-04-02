@@ -81,7 +81,9 @@ public class Carta extends javax.swing.JLabel{
         this.jogada = jogada;
     }
     
-    
+    public ImageIcon getIconById(){
+        return new ImageIcon(getClass().getResource(("/imgs/"+this.getId()+".png")));
+    }
 
     private void setNomeById(){ //seta o nome da carta correspondente ao id
         
@@ -199,5 +201,6 @@ public class Carta extends javax.swing.JLabel{
         this.setNomeById();
         this.setImgById();
     }
+    
     
 }

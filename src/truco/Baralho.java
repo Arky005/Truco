@@ -1,4 +1,7 @@
 package truco;
+
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author otavio.morais
@@ -47,9 +50,14 @@ public class Baralho {
         //envia as cartas para cada jogador
         maoJ1.setCartas(new Carta[]{cartas[0], cartas[1], cartas[2]});
         maoJ2.setCartas(new Carta[]{cartas[3], cartas[4], cartas[5]});
-        Jogo.getJogador1().setMao(maoJ1);
-        Jogo.getJogador2().setMao(maoJ2);
-        Jogo.getJogador1().getMao().mostrar();
+        //esconde as cartas do bot
+        maoJ2.getCartas()[0].setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
+        maoJ2.getCartas()[1].setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
+        maoJ2.getCartas()[2].setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
+        
+        Truco.getFrameJogo().getJogador1().setMao(maoJ1);
+        Truco.getFrameJogo().getJogador2().setMao(maoJ2);
+        Truco.getFrameJogo().getJogador1().getMao().mostrar();
         
     } 
         
