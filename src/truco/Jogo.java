@@ -53,104 +53,16 @@ class Jogo extends javax.swing.JFrame {
         j2carta2.setDeBot(true);
         j2carta3.setDeBot(true);
         
-       
         j2carta1.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
         j2carta2.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
         j2carta3.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
         
         iconeBaralho.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
-        
-        
-        
-        /*
-        new Thread(){ 
-            public void run(){
-                try {
-                    Thread.sleep(3000);
-                    iconeBaralho.setIcon(null);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }  
-        }.start();
-        */
-       
-        
-    
-        //iconeBaralho.setIcon(null);
     }
     
     private void iniciarJogo(){
-        
-        
         threadJogo = new ThreadJogo();
         threadJogo.start();
-        /*
-        
-       threadJogo = new Thread(new Runnable(){
-           boolean continuar=true;
-           public void run(){
-               
-              
-                   int jogadorSelecionado=(int)(Math.random()*2);
-                    switch(jogadorSelecionado){
-                        case 0:
-                            Jogo.getJogador1().setTurno(true);
-                        case 1:
-                            Jogo.getJogador2().setTurno(true);
-                    }
-
-                    while(true){
-
-
-                        if(Jogo.getJogador2().isTurno()){
-                            jLabel1.setText("vez2");
-
-                            if(centroj1.getIcon()!=null)
-
-                            if(Jogo.getJogador2().getPontuacao()<10){
-
-                            } else {
-
-                            }
-
-                            try {
-                                Thread.sleep(1000);
-                            } catch (InterruptedException ex) {
-                                Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            Jogo.getJogador2().setTurno(false);
-                            Jogo.getJogador1().setTurno(true);
-                        } else 
-
-                        if(Jogo.getJogador1().isTurno()){
-                            jLabel1.setText("vez1");
-                            if(Jogo.getJogador1().getPontuacao()<10){
-
-                            } else {
-
-                            }
-                            if(centroj1.getIcon()!=null){
-                                try {
-                                    Thread.sleep(1000);
-                                } catch (InterruptedException ex) {
-                                    Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                                Jogo.getJogador1().setTurno(false);
-                                Jogo.getJogador2().setTurno(true);
-                            }
-                        }
-                    
-                   
-                    }               
-               
-           }
-           
-         
-       });
-        
-       threadJogo.start();
-        */
     }
 
     public Jogador getJogador1() {
@@ -165,7 +77,6 @@ class Jogo extends javax.swing.JFrame {
         return centroJ1;
     }
     
-
     public Carta getCentroJ2() {
         return centroJ2;
     }
@@ -173,9 +84,7 @@ class Jogo extends javax.swing.JFrame {
     public JLabel getjLabel1() {
         return jLabel1;
     }
-
-    
-    
+ 
     public int getNumJogadores() {
         return numJogadores;
     }
@@ -294,23 +203,30 @@ class Jogo extends javax.swing.JFrame {
     
     private void j1carta1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j1carta1MouseClicked
         // TODO add your handling code here:
-        centroJ1.clonarDe(j1carta1);
-        j1carta1.setIcon(null);
-        getJogador1().getMao().getCartas()[0].setJogada(true);    
+        //if turno e centro==null
+        if(this.getJogador1().isTurno() && this.getCentroJ1().getIcon()==null){
+            centroJ1.clonarDe(j1carta1);
+            j1carta1.setIcon(null);
+            getJogador1().getMao().getCartas()[0].setJogada(true);   
+        }
     }//GEN-LAST:event_j1carta1MouseClicked
 
     private void j1carta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j1carta2MouseClicked
         // TODO add your handling code here:
-        centroJ1.clonarDe(j1carta2);
-        j1carta2.setIcon(null);
-        getJogador1().getMao().getCartas()[1].setJogada(true);
+        if(this.getJogador1().isTurno() && this.getCentroJ1().getIcon()==null){
+            centroJ1.clonarDe(j1carta2);
+            j1carta2.setIcon(null);
+            getJogador1().getMao().getCartas()[1].setJogada(true);
+        }
     }//GEN-LAST:event_j1carta2MouseClicked
 
     private void j1carta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j1carta3MouseClicked
         // TODO add your handling code here:
-        centroJ1.clonarDe(j1carta3);
-        j1carta3.setIcon(null);
-        getJogador1().getMao().getCartas()[2].setJogada(true);
+        if(this.getJogador1().isTurno() && this.getCentroJ1().getIcon()==null){
+            centroJ1.clonarDe(j1carta3);
+            j1carta3.setIcon(null);
+            getJogador1().getMao().getCartas()[2].setJogada(true);
+        }
     }//GEN-LAST:event_j1carta3MouseClicked
 
     public Carta getJ2carta1() {

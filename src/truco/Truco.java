@@ -82,7 +82,7 @@ public class Truco extends javax.swing.JFrame {
     private void botaoJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoJogarActionPerformed
         // TODO add your handling code here:
         this.setNumJogadores( (boxJogadores.getSelectedItem().toString().equals("2 jogadores")? 2:4) );
-        new Jogo("nome", getNumJogadores());       
+        frameJogo = new Jogo("nome", getNumJogadores());       
     }//GEN-LAST:event_botaoJogarActionPerformed
 
     /**
