@@ -13,7 +13,7 @@ public class Carta extends javax.swing.JLabel{
     private String nome, naipe;
     private URL srcImg;
     private int id, valor;
-    private boolean manilha, jogada;
+    private boolean manilha, jogada, virada, deBot;
 
     public Carta(){ //gera carta vazia
        super();
@@ -193,13 +193,27 @@ public class Carta extends javax.swing.JLabel{
                 this.setManilha(true);
         }   
     }
+
+    public void setDeBot(boolean deBot) {
+        this.deBot = deBot;
+    }
+
+    public boolean isDeBot() {
+        return deBot;
+    }
+    
+    
     
     public void clonarDe(Carta carta){
+        
         this.setIcon(carta.getIcon());
         this.setId(carta.getId());
         this.setValorById();
         this.setNomeById();
         this.setImgById();
+        this.setDeBot(carta.isDeBot());
+        //if(deBot)
+           // this.setIcon(new ImageIcon(this.getSrcImg()));
     }
     
     

@@ -7,6 +7,7 @@ package truco;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -25,7 +26,7 @@ public class ThreadJogo extends Thread {
     @Override
     public void run(){
         
-        
+        int rodada1, rodada2, rodada3, rodadaAtual, valorTurno;
         int jogadorSelecionado=(int)(Math.random()*2);
         switch(jogadorSelecionado){
             case 0:
@@ -36,32 +37,96 @@ public class ThreadJogo extends Thread {
 
         while(executar){
 
-        int rodada1, rodada2, rodada3, rodadaAtual;
-
+        
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ThreadJogo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+            if(frame.getCentroJ1()!=null && frame.getCentroJ2()!=null){
+                
+            }
+        
             if(frame.getJogador2().isTurno()){ //se é a vez do jogador2
                 frame.getjLabel1().setText("vez2");
+                
                 if(frame.getJogador2().getPontuacao()<10){
 
                     if(frame.getCentroJ1().getIcon()!=null){ //se o jogador 1 ja jogou
                     
                         //se a menor carta do bot ainda nao foi jogada
                         if(!frame.getJogador2().getMao().getMenor().isJogada() && 
-                                //e ela é maior que a carta jogada pelo player
-                                frame.getJogador2().getMao().getMenor().getValor()>frame.getCentroJ1().getValor()){
-                                frame.getCentroJ2().setIcon(frame.getJogador2().getMao().getMenor().getIconById()); //envia a carta para o centro
-                                frame.getJ2carta1().setIcon(null);
+                        //e ela é maior que a carta jogada pelo player
+                            frame.getJogador2().getMao().getMenor().getValor()>frame.getCentroJ1().getValor()){
+                            
+                                frame.getCentroJ2().clonarDe(frame.getJogador2().getMao().getMenor());//envia a carta para o centro
+                                frame.getCentroJ2().setIcon(frame.getCentroJ2().getIconById()); //mostra a carta do oponente no meio
+                                
+                                //muda o icone da carta jogada para null na mao
+                                if(frame.getJ2carta1().getId()==frame.getJogador2().getMao().getMenor().getId())
+                                    frame.getJ2carta1().setIcon(null);
+                                else if(frame.getJ2carta2().getId()==frame.getJogador2().getMao().getMenor().getId())
+                                    frame.getJ2carta2().setIcon(null);
+                                else if(frame.getJ2carta3().getId()==frame.getJogador2().getMao().getMenor().getId())
+                                    frame.getJ2carta3().setIcon(null);
+                                
                                 frame.getJogador2().getMao().getMenor().setJogada(true); //marca a carta como jogada
+                            
+                        } else
+                        //se a carta de valor medio do bot ainda nao foi jogada
+                        if(!frame.getJogador2().getMao().getMedia().isJogada() &&
+                        //e ela é maior que a carta jogada pelo player
+                            frame.getJogador2().getMao().getMedia().getValor()>frame.getCentroJ1().getValor()){
+                                frame.getCentroJ2().clonarDe(frame.getJogador2().getMao().getMedia());//envia a carta para o centro
+                                frame.getCentroJ2().setIcon(frame.getCentroJ2().getIconById());
+                                
+                                //muda o icone da carta jogada para null na mao
+                                if(frame.getJ2carta1().getId()==frame.getJogador2().getMao().getMedia().getId())
+                                    frame.getJ2carta1().setIcon(null);
+                                else if(frame.getJ2carta2().getId()==frame.getJogador2().getMao().getMedia().getId())
+                                    frame.getJ2carta2().setIcon(null);
+                                else if(frame.getJ2carta3().getId()==frame.getJogador2().getMao().getMedia().getId())
+                                    frame.getJ2carta3().setIcon(null);
+                                
+                                frame.getJogador2().getMao().getMedia().setJogada(true); //marca a carta como jogada
+                                
+                        } else
+                            
+                        if(!frame.getJogador2().getMao().getMaior().isJogada() &&
+                            //e ela é maior que a carta jogada pelo player    
+                            frame.getJogador2().getMao().getMaior().getValor()>frame.getCentroJ1().getValor()){
+                            
+                                frame.getCentroJ2().clonarDe(frame.getJogador2().getMao().getMaior());//envia a carta para o centro
+                                frame.getCentroJ2().setIcon(frame.getCentroJ2().getIconById());
+                                
+                                //muda o icone da carta jogada para null na mao
+                                if(frame.getJ2carta1().getId()==frame.getJogador2().getMao().getMaior().getId())
+                                    frame.getJ2carta1().setIcon(null);
+                                else if(frame.getJ2carta2().getId()==frame.getJogador2().getMao().getMaior().getId())
+                                    frame.getJ2carta2().setIcon(null);
+                                else if(frame.getJ2carta3().getId()==frame.getJogador2().getMao().getMaior().getId())
+                                    frame.getJ2carta3().setIcon(null);
+                                
+                                        
+                                
+                                
+                                frame.getJogador2().getMao().getMaior().setJogada(true); //marca a carta como jogada
                         }
-                        
+                       // System.out.println(frame.getCentroJ2().getSrcImg()+" "+frame.getCentroJ2().isDeBot());
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(ThreadJogo.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        if(frame.getCentroJ2().getIcon()!=null){
+                            frame.getCentroJ1().setIcon(null);
+                            frame.getCentroJ2().setIcon(null);
+                        }
                     }
 
                 }
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                
                 frame.getJogador2().setTurno(false);
                 frame.getJogador1().setTurno(true);
             } else 
@@ -74,11 +139,6 @@ public class ThreadJogo extends Thread {
 
                 }
                 if(frame.getCentroJ1().getIcon()!=null){
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(Jogo.class.getName()).log(Level.SEVERE, null, ex);
-                    }
                     frame.getJogador1().setTurno(false);
                     frame.getJogador2().setTurno(true);
                 }

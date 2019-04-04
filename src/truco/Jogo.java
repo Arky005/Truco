@@ -49,7 +49,15 @@ class Jogo extends javax.swing.JFrame {
         j2carta2.clonarDe(getJogador2().getMao().getCartas()[1]);
         j2carta3.clonarDe(getJogador2().getMao().getCartas()[2]);
         
+        j2carta1.setDeBot(true);
+        j2carta2.setDeBot(true);
+        j2carta3.setDeBot(true);
+        
        
+        j2carta1.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
+        j2carta2.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
+        j2carta3.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
+        
         iconeBaralho.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
         
         
@@ -195,9 +203,21 @@ class Jogo extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
 
+        j1carta2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                j1carta2MouseClicked(evt);
+            }
+        });
+
         j1carta1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 j1carta1MouseClicked(evt);
+            }
+        });
+
+        j1carta3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                j1carta3MouseClicked(evt);
             }
         });
 
@@ -276,10 +296,22 @@ class Jogo extends javax.swing.JFrame {
         // TODO add your handling code here:
         centroJ1.clonarDe(j1carta1);
         j1carta1.setIcon(null);
-        getJogador1().getMao().getCartas()[0].setJogada(true);
-        
-        
+        getJogador1().getMao().getCartas()[0].setJogada(true);    
     }//GEN-LAST:event_j1carta1MouseClicked
+
+    private void j1carta2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j1carta2MouseClicked
+        // TODO add your handling code here:
+        centroJ1.clonarDe(j1carta2);
+        j1carta2.setIcon(null);
+        getJogador1().getMao().getCartas()[1].setJogada(true);
+    }//GEN-LAST:event_j1carta2MouseClicked
+
+    private void j1carta3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_j1carta3MouseClicked
+        // TODO add your handling code here:
+        centroJ1.clonarDe(j1carta3);
+        j1carta3.setIcon(null);
+        getJogador1().getMao().getCartas()[2].setJogada(true);
+    }//GEN-LAST:event_j1carta3MouseClicked
 
     public Carta getJ2carta1() {
         return j2carta1;

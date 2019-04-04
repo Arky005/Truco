@@ -109,6 +109,9 @@
       </Properties>
     </Component>
     <Component class="truco.Carta" name="j1carta2">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="j1carta2MouseClicked"/>
+      </Events>
     </Component>
     <Component class="truco.Carta" name="j1carta1">
       <Events>
@@ -116,6 +119,9 @@
       </Events>
     </Component>
     <Component class="truco.Carta" name="j1carta3">
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="j1carta3MouseClicked"/>
+      </Events>
     </Component>
     <Component class="truco.Carta" name="j2carta1">
     </Component>
