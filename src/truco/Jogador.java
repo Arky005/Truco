@@ -15,6 +15,7 @@ public class Jogador extends Truco{
     public Jogador(String nome){
         this.nome=nome;
         pontuacao=0;
+        this.setTurno(false);
     }
     
     public Jogador(){

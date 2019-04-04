@@ -7,6 +7,7 @@ package truco;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -15,11 +16,15 @@ import java.util.logging.Logger;
 public class ThreadJogo extends Thread {
     
     private boolean executar;
-    private Jogo frame; 
+    private final Jogo frame; 
     
     public ThreadJogo(){
         frame=Truco.getFrameJogo();
         executar=true;
+    }
+    
+    private void animacaoTurno(){
+        
     }
     
     @Override
@@ -30,6 +35,7 @@ public class ThreadJogo extends Thread {
         switch(jogadorSelecionado){
             case 0:
                 frame.getJogador1().setTurno(true);
+                break;
             case 1:
                 frame.getJogador2().setTurno(true);
         }
@@ -47,7 +53,8 @@ public class ThreadJogo extends Thread {
             }
         
             if(frame.getJogador2().isTurno()){ //se é a vez do jogador2
-                frame.getjLabel1().setText("vez2");
+                frame.getVisorJ2().setIcon(new ImageIcon(getClass().getResource("/imgs/visor.png")));
+                frame.getVisorJ1().setIcon(null);
                 
                 if(frame.getJogador2().getPontuacao()<10){
 
@@ -127,7 +134,10 @@ public class ThreadJogo extends Thread {
             } else 
 
             if(frame.getJogador1().isTurno()){
-                frame.getjLabel1().setText("vez1");
+                
+                frame.getVisorJ1().setIcon(new ImageIcon(getClass().getResource("/imgs/visor.png")));
+                frame.getVisorJ2().setIcon(null);
+                
                 if(frame.getJogador1().getPontuacao()<10){
 
                 } else {
