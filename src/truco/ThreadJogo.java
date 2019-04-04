@@ -37,9 +37,8 @@ public class ThreadJogo extends Thread {
 
         while(executar){
 
-        
             try {
-                Thread.sleep(1000);
+                Thread.sleep(300);
             } catch (InterruptedException ex) {
                 Logger.getLogger(ThreadJogo.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -92,9 +91,9 @@ public class ThreadJogo extends Thread {
                                 frame.getJogador2().getMao().getMedia().setJogada(true); //marca a carta como jogada
                                 
                         } else
-                            
+                        //se a carta de valor medio do bot ainda nao foi jogada   
                         if(!frame.getJogador2().getMao().getMaior().isJogada() &&
-                            //e ela é maior que a carta jogada pelo player    
+                        //e ela é maior que a carta jogada pelo player    
                             frame.getJogador2().getMao().getMaior().getValor()>frame.getCentroJ1().getValor()){
                             
                                 frame.getCentroJ2().clonarDe(frame.getJogador2().getMao().getMaior());//envia a carta para o centro
@@ -108,14 +107,11 @@ public class ThreadJogo extends Thread {
                                 else if(frame.getJ2carta3().getId()==frame.getJogador2().getMao().getMaior().getId())
                                     frame.getJ2carta3().setIcon(null);
                                 
-                                        
-                                
-                                
                                 frame.getJogador2().getMao().getMaior().setJogada(true); //marca a carta como jogada
                         }
-                       // System.out.println(frame.getCentroJ2().getSrcImg()+" "+frame.getCentroJ2().isDeBot());
+                       
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(1300);
                         } catch (InterruptedException ex) {
                             Logger.getLogger(ThreadJogo.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -143,8 +139,6 @@ public class ThreadJogo extends Thread {
                     frame.getJogador2().setTurno(true);
                 }
             }
-
-
         }
         
         
