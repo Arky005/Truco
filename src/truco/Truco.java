@@ -121,6 +121,7 @@ public class Truco extends javax.swing.JFrame {
         });
     }
     
+    
     public void setNumJogadores(int nJogadores) {
         this.numJogadores = nJogadores;
     }
