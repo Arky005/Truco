@@ -59,13 +59,16 @@ public class ThreadJogo extends Thread {
             } catch (InterruptedException ex) {
                 Logger.getLogger(ThreadJogo.class.getName()).log(Level.SEVERE, null, ex);
             }
-        
+    
+            
+            /////////////////////////////////////////////////////////////////////////////////////////
+            ///////////////////////          ADMINISTRADOR DE PONTUAÇÕES         ////////////////////
+            /////////////////////////////////////////////////////////////////////////////////////////
+            
             //quando os dois ja jogaram, olha o resultado
             if(frame.getCentroJ1().getIcon()!=null && frame.getCentroJ2().getIcon()!=null){
-                
                 //se a ultima rodada foi empate
                 if(ultimaEmpatou){
-                    
                     //se ninguem fez a primeira rodada da os pontos pra quem mandou a maior agora
                     if(rodada1==0){
                         //se a carta do jogador 1 é maior que a do bot
@@ -91,7 +94,7 @@ public class ThreadJogo extends Thread {
                 } 
                 //se nao empatou e se a carta do jogador 1 é maior que a do bot
                 else if(frame.getCentroJ1().getValor()>frame.getCentroJ2().getValor()){
-                    
+                    //se esta na primeira rodada
                     if(rodadaAtual==1){
                             //seta o jogador1 como vencedor da atual rodada
                             rodada1=1;
@@ -100,18 +103,15 @@ public class ThreadJogo extends Thread {
                     } else if(rodadaAtual==3){
                         //seta o jogador1 como vencedor da rodada3
                         rodada3=1;
-                        
                         frame.getJogador1().setPontuacao(frame.getJogador1().getPontuacao()+valorMao);
                         valorMao=2;
                         rodada1=rodada2=rodada3=0;
                         rodadaAtual=1;
                         frame.novaRodada();
                     } else if(rodadaAtual==2){
-                        
                         //seta o jogador1 como vencedor da atual rodada
                         rodada2=1;
                         rodadaAtual++;
-                        
                         //mas se o jogador1 venceu a primeira e segunda rodadas
                         if(rodada1==1){
                             //seta como vencedor da mao
@@ -120,15 +120,12 @@ public class ThreadJogo extends Thread {
                             rodada1=rodada2=rodada3=0;
                             rodadaAtual=1;
                             frame.novaRodada();
-                        }
-                        
-                    }   
-                    
-                    
+                        }  
+                    }      
                 }   
                 //se a carta do bot é maior do que a do jogador 1
                 else if(frame.getCentroJ2().getValor()>frame.getCentroJ1().getValor()){
-                    
+                    //se esta na primeira rodada
                     if(rodadaAtual==1){
                             //seta o bot como vencedor da atual rodada
                             rodada1=2;
@@ -144,7 +141,6 @@ public class ThreadJogo extends Thread {
                         rodadaAtual=1;
                         frame.novaRodada();
                     } else if(rodadaAtual==2){
-                        
                         //seta o bot como vencedor da atual rodada
                         rodada2=2;
                         rodadaAtual++;
@@ -157,24 +153,21 @@ public class ThreadJogo extends Thread {
                             rodadaAtual=1;
                             frame.novaRodada();
                         }  
-                    } 
-                    
-                    
+                    }   
                 } 
                 //se empatou 
                 else {
                     ultimaEmpatou=true;
                     rodadaAtual++;
                 }
-                
-                
                 frame.getCentroJ1().setIcon(null);
-                frame.getCentroJ2().setIcon(null);
-                
+                frame.getCentroJ2().setIcon(null);    
             }
         
-            //logica do bot
-            
+            //////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////          LOGICA DO BOT        ///////////////////////////////
+            //////////////////////////////////////////////////////////////////////////////////////
+    
             if(frame.getJogador2().isTurno()){ //se é a vez do bot
                 frame.getVisorJ2().setIcon(new ImageIcon(getClass().getResource("/imgs/visor.png")));
                 frame.getVisorJ1().setIcon(null);
@@ -188,9 +181,9 @@ public class ThreadJogo extends Thread {
                         //e ela é maior que a carta jogada pelo player
                             frame.getJogador2().getMao().getMenor().getValor()>frame.getCentroJ1().getValor()){
                             
-                                frame.getCentroJ2().clonarDe(frame.getJogador2().getMao().getMenor());//envia a carta para o centro
-                                frame.getCentroJ2().setIcon(frame.getCentroJ2().getIconById()); //mostra a carta do oponente no meio
-                                
+                                //envia a carta para o centro
+                                frame.getCentroJ2().clonarDe(frame.getJogador2().getMao().getMenor());
+                                frame.getCentroJ2().setIcon(frame.getCentroJ2().getIconById()); 
                                 //muda o icone da carta jogada para null na mao
                                 if(frame.getJ2carta1().getId()==frame.getJogador2().getMao().getMenor().getId())
                                     frame.getJ2carta1().setIcon(null);
@@ -198,15 +191,16 @@ public class ThreadJogo extends Thread {
                                     frame.getJ2carta2().setIcon(null);
                                 else if(frame.getJ2carta3().getId()==frame.getJogador2().getMao().getMenor().getId())
                                     frame.getJ2carta3().setIcon(null);
-                                
-                                frame.getJogador2().getMao().getMenor().setJogada(true); //marca a carta como jogada
-                            
+                                //marca a carta como jogada
+                                frame.getJogador2().getMao().getMenor().setJogada(true);    
                         } else
                         //se a carta de valor medio do bot ainda nao foi jogada
                         if(!frame.getJogador2().getMao().getMedia().isJogada() &&
                         //e ela é maior que a carta jogada pelo player
                             frame.getJogador2().getMao().getMedia().getValor()>frame.getCentroJ1().getValor()){
-                                frame.getCentroJ2().clonarDe(frame.getJogador2().getMao().getMedia());//envia a carta para o centro
+                            
+                                //envia a carta para o centro
+                                frame.getCentroJ2().clonarDe(frame.getJogador2().getMao().getMedia());
                                 frame.getCentroJ2().setIcon(frame.getCentroJ2().getIconById());
                                 
                                 //muda o icone da carta jogada para null na mao
