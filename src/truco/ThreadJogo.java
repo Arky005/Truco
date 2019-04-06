@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author 11821915
+ * @author otavio.morais
  */
 public class ThreadJogo extends Thread {
     
