@@ -214,7 +214,7 @@ public class ThreadJogo extends Thread {
                                 frame.getJogador2().getMao().getMedia().setJogada(true); //marca a carta como jogada
                                 
                         } else
-                        //se a carta de valor medio do bot ainda nao foi jogada   
+                        //se a maior carta do bot ainda nao foi jogada   
                         if(!frame.getJogador2().getMao().getMaior().isJogada() &&
                         //e ela é maior que a carta jogada pelo player    
                             frame.getJogador2().getMao().getMaior().getValor()>frame.getCentroJ1().getValor()){

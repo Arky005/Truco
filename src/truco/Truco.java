@@ -10,7 +10,7 @@ public class Truco extends javax.swing.JFrame {
     private static Jogo frameJogo;
     
     /**
-     * Creates new form Trucoo
+     * Creates new form Truco
      */
     public Truco() {
         initComponents();
