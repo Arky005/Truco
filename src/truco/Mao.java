@@ -60,7 +60,7 @@ public class Mao {
 
     public void setCartas(Carta[] cartas) {
         this.cartas = cartas;
-        cartasOrdenadas=cartas.clone();
+        cartasOrdenadas=cartas;
         selecao();
     }
     

@@ -2,6 +2,7 @@ package truco;
 
 
 import java.awt.Color;
+import java.awt.Cursor;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -48,7 +49,10 @@ class Jogo extends javax.swing.JFrame {
     //NAIPES: 0-10=paus, 10-19=copas, 20-29=ouros, 30-39=espadas 
     //FINAL: 1=A,2=2,3=3,4=4,5=5,6=6,7=7,8=Q,9=J,0=K
     
-    private void prepararCartas(){
+    public void prepararCartas(){
+        
+        getCentroJ1().setIcon(null);
+        getCentroJ2().setIcon(null);
         
         j1carta1.clonarDe(getJogador1().getMao().getCartas()[0]);
         j1carta2.clonarDe(getJogador1().getMao().getCartas()[1]);
@@ -67,6 +71,11 @@ class Jogo extends javax.swing.JFrame {
         j2carta3.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
         
         iconeBaralho.setIcon(new ImageIcon(getClass().getResource(("/imgs/fechada.png"))));
+        
+        j1carta1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        j1carta2.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        j1carta3.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        
     }
     
     private void iniciarJogo(){
